@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" href="{% static 'css/img/favicon.ico' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>{% block title %} {% endblock %}</title>
+    {% block cssadd %}{% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div style="border: 3px solid #47473d; margin: 1%; border-radius: 10px;">
+    <div class="col-md-4 offset-md-4">
+        <p class="text-center" style="color: #47473d; font-size: 35px; margin-top: 100px;">
+            Здесь можно оплатить комбо-ланч.
+        </p>
+    </div>
+    <div style="margin-left: 42%; margin-top: 180px; margin-bottom: 110px;">
+        <form class="form-signin" method="post">
+            {% csrf_token %}
+            <button class="btn btn-lg btn-outline-danger btn-block" style="border: 3px solid #DC3545; border-radius: 10px;" type="submit" style="margin-top: 15px;">Оплатить картой</button>
+        </form>
+    </div>
+    </div>
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</body>
+</html>
